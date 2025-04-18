@@ -1,4 +1,4 @@
-import { FlatList, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { FlatList, Platform, Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { blackColor, darkBlueColor, goldColor, grayColor, whiteColor } from '../constants/Color'
 import { BaseStyle } from '../constants/Style';
@@ -13,7 +13,7 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 const { flex, alignItemsCenter, alignJustifyCenter, resizeModeContain, flexDirectionRow, justifyContentSpaceBetween, textAlign } = BaseStyle;
 
-const FavouriteScreen = () => {
+const FavouriteScreen = ({navigation}) => {
 
   const normalizeData = (data) => {
     if (data.length === 0) return [];
@@ -58,7 +58,7 @@ const FavouriteScreen = () => {
     const chartData = normalizeData(item.graphData);
 
     return (
-      <View style={styles.signalCard}>
+      <Pressable style={styles.signalCard} onPress={()=>navigation.navigate("CryptoOverView")}>
         <Foundation name="bitcoin-circle" size={40} color={goldColor} style={styles.icon} />
         <Text style={[styles.signalText, { paddingLeft: 5 }]}>{item.name}</Text>
         <Text style={styles.signalPrice}>{item.price}</Text>
@@ -99,7 +99,7 @@ const FavouriteScreen = () => {
             {item.value} {arrow}
           </Text>
         </View>
-      </View>
+      </Pressable>
     );
   };
 

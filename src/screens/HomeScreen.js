@@ -1,4 +1,4 @@
-import { Animated, FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Animated, FlatList, Image, Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useRef, useState } from 'react'
 import { blackColor, darkBlueColor, goldColor, grayColor, whiteColor } from '../constants/Color'
 import { BaseStyle } from '../constants/Style';
@@ -12,7 +12,7 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 const { flex, alignItemsCenter, alignJustifyCenter, resizeModeContain, flexDirectionRow, justifyContentSpaceBetween, textAlign } = BaseStyle;
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   const menuOptions = ["All", "Trending", "Favorite"];
   const [selectedMenu, setSelectedMenu] = useState("All");
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -122,7 +122,7 @@ const HomeScreen = () => {
     const chartData = normalizeData(item.graphData);
 
     return (
-      <View style={styles.signalCard}>
+      <Pressable style={styles.signalCard} onPress={()=>navigation.navigate("CryptoOverView")}>
         <Foundation name="bitcoin-circle" size={40} color={goldColor} style={styles.icon} />
         <Text style={[styles.signalText, { paddingLeft: 5 }]}>{item.name}</Text>
         <Text style={styles.signalPrice}>{item.price}</Text>
@@ -163,7 +163,7 @@ const HomeScreen = () => {
             {item.value} {arrow}
           </Text>
         </View>
-      </View>
+      </Pressable>
     );
   };
 

@@ -28,7 +28,7 @@ const PaymentMethod = ({ navigation }) => {
 
 
     return (
-        <LinearGradient colors={["#fff", "#F2f2f9"]} style={{ flex: 1 }}>
+        <LinearGradient colors={[whiteColor, "#F2f2f9", "#F2f2f9"]} style={{ flex: 1 }}>
             {/* Header */}
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 16 }}>
                 <Pressable onPress={() => {
@@ -82,7 +82,7 @@ const PaymentMethod = ({ navigation }) => {
                 </View>
             ) : (
                 <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
-                    <ScrollView contentContainerStyle={[styles.box,{paddingHorizontal:spacings.large}]}>
+                    <ScrollView contentContainerStyle={[styles.box, { paddingHorizontal: spacings.large }]}>
                         {selectedImage && (
                             <Image
                                 source={selectedImage}
