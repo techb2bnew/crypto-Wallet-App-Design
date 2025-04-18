@@ -1,0 +1,9 @@
+export const USERNAME = "UserName";
+export const EMAIL = "E-mail";
+export const PASSWORD = "Password";
+export const CONFIRM_PASSWORD = "Confirm Password";
+export const LOGIN = "Login";
+export const SIGN_UP = "Sign Up";
+export const DONT_HAVE_ACCOUNT = "Don't have account?";
+export const ALREADY_HAVE_ACCOUNT = "Already have an account";
+export const OR_CONTINUE_WITH = "Or Continue With";
